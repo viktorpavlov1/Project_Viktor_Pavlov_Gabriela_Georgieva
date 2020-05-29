@@ -1,0 +1,66 @@
+extends ../main-frame.pug
+
+block styles
+    link(href="/res/css/gallery.css", rel="stylesheet")    
+
+block content
+    
+    .col-md-10.col-md-offset-1.panel
+        .panel-heading.text-center.heading-gallery
+            h1 #{image.title}
+        .panel-body.text-center.gallery-single-photo
+            img(src= image.url, alt= image.title)
+        .panel-footer.text-center
+            if user
+                form(action="/photo/" + image._id + "/like-or-dislike" method="POST")
+                    if !image.likes.includes(user.username)
+                        button.btn.btn-success.btn-xs(type="submit")
+                            span.glyphicon.glyphicon-thumbs-up
+                            |  Like (#{image.likes.length})
+                    else
+                        button.btn.btn-success.btn-xs(type="submit")
+                            span.glyphicon.glyphicon-thumbs-up
+                            |  Liked (#{image.likes.length})
+            | Added by: 
+            a(href="/profile/" + image.author)= image.author
+            br
+            | Created on: #{image.createdOn}
+            br
+            | Category: #{image.category}
+            if user && (user.username == image.author || user.role == "admin")   
+                form(action="/delete-photo/" + image._id, method="POST")                              
+                    button.btn.btn-xs.btn-danger(type="submit") Delete Photo
+            br
+            if image.comments.length != 0 && !image.comments.every(x => x.hidden === true)
+                .panel.text-center
+                    .panel-heading
+                        h2 Comments:
+                        each comment in image.comments
+                            if !comment.hidden
+                                .panel-footer
+                                    p #{comment.body}
+                                    a(href="/profile/" + comment.author)= comment.author
+                                    br
+                                    | Created on: #{comment.date}   
+                                    if user && (user.username == comment.author || user.role == "admin")   
+                                        form(action="/photo/" + image._id + "/delete-comment/" + comment._id, method="POST")                              
+                                            button.btn.btn-xs.btn-danger(type="submit") Delete Comment
+                                        
+            if user
+                button#btn-gallery-add-comment.btn.btn-warning.btn-block(href="#" data-toggle="modal" data-target="#gallery-comment-modal") Add Comment                             
+            
+            .footer-fix
+
+            #gallery-comment-modal.modal.fade(role='dialog')
+                .modal-dialog.modal-lg
+                    .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal') &times;
+                        h3.modal-title(style="color: white") Add Comment:
+                    .modal-body
+                        form.form-group(action="/photo/" + image._id + "/post-comment" method="POST")
+                            input.form-control(type="text" name="comment" placeholder="What do you think...")
+                            br
+                            button.btn.btn-success.btn-md(type="submit") Submit      
+                            span                         
+                            button.btn.btn-danger(type='button', data-dismiss='modal' onclick="false") Discard

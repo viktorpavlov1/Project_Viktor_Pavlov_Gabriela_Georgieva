@@ -1,0 +1,38 @@
+extends ../main-frame
+
+block styles
+    link(href="/res/css/events.css", rel="stylesheet")
+
+block content
+
+    .col-md-10.col-md-offset-1.single-event-page
+        .row.text-center
+            .image-bar
+                if events.length
+                    .panel.panel-heding-events
+                        each galleryPicture in events.latestPicturesFromGallery
+                            img(src=galleryPicture.url, alt='event picture ' + galleryPicture.category)
+
+            h1.heading-category Share your ideas with other, share your favourite spots and have fun together...
+
+        if user
+            - var href = '/events/add-event/' + category;
+            a.btn.btn-default(href='/events/add-event/' + category)= 'Add ' + category + ' event'
+
+        if events.length
+            each event in events
+                a.thumbnail(href='/events/' + event.category + '/' + event._id)
+                    .row.event-entry
+                        .col-md-3
+                            img.thumbnail(src= event.pictures[0].src, alt= event.title)
+                        .col-md-9
+                            h2 #{event.title}
+                            h4 #{event.category}
+                            p #{event.body}
+        else
+            h3 No events yet...
+        .footer-fix
+
+
+
+

@@ -1,0 +1,30 @@
+extends ../main-frame
+
+block content
+
+    .container-fluid.neshto
+        .row
+            br
+            br
+            .col-md-4.col-md-offset-4.text-center
+                form.form-add-event(action='/events/add-event/' + category  method="post")
+                    h2.form-add-event-heading Add new #{category} event.
+                    br
+                    
+                    #datePicker.input-group.input-append.date
+                        input.form-control(type='text', name='date' placeholder="Expected date")
+                        span.input-group-addon.add-on
+                            span.glyphicon.glyphicon-calendar
+                    label.sr-only(for='title') Title
+                    input.form-control(type='text', placeholder='Add title', name="title" required='', autofocus='')
+                    label.sr-only(for='title') Text
+                    input.form-control(type='text', placeholder='Add text', name="body" required='', autofocus='')
+                    label.sr-only(for='title') Avatar Url
+                    input.form-control(type='text', placeholder='Event Picture', name="eventPicture", autofocus='')
+
+
+                    br
+                    button.btn.btn-md.btn-success.btn-block(type='submit') Add
+
+    script(src="/res/js/datepicker.js")
+                    

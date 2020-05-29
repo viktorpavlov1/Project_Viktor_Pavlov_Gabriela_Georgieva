@@ -1,0 +1,27 @@
+{
+  "name": "extreme-sports",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "postinstall": "./node_modules/.bin/bower install"
+  },
+  "author": "Team \"Viktor and Gabriela\"",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bower": "^1.8.0",
+    "chai": "^3.5.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "mocha": "^3.2.0",
+    "mongoose": "^4.7.0",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.0-beta6"
+  }
+}

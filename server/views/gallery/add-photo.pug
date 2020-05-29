@@ -1,0 +1,22 @@
+extends ../main-frame.pug
+
+block content
+        div.freeSpace
+
+        .col-md-10.col-md-offset-1
+            .col-md-4.col-md-offset-4.text-center
+                form.form-signin(action="/add-photo", method="POST")
+                    h2.form-signin-heading Add Photo
+                    br  
+                    label.sr-only(for='url')
+                    input#add-photo-url.form-control(type="text" name="url" placeholder="Photo URL" required="true")
+                    label.sr-only(for='title')
+                    input#add-photo-title.form-control(type='text', name="title" placeholder='Title', required='')                    
+                    label.sr-only(for="category")
+                    select#add-photo-category.form-control(name="category" required="true")
+                        option(value="Ski") Ski
+                        option(value="Snowboard") Snowboard
+                        option(value="Bike") Bike
+                    br 
+                    button#btn-add-gallery-photo.btn(type='submit'  onclick="return false;") Upload
+

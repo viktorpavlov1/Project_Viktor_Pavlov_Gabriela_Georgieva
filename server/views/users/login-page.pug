@@ -1,0 +1,31 @@
+extends ../main-frame.pug
+
+block content
+    div.freeSpace
+
+    .container-fluid
+        .row
+            .col-md-4.col-md-offset-4.text-center
+                h3.form-signin-heading Please sign in
+                    br
+                form.form-signin(action="/login" method="post")
+                    div.form-group
+                        ul.signinLi
+                            li
+                                img(src='res/images/Nav/signin.PNG' height=30)
+                            li
+                                label.sr-only(for='username') Username
+                                input#username-login.form-control(type='text', placeholder='Username', name="username" required='true', onfocus="this.placeholder = ''" onblur="this.placeholder ='Username'")
+
+                    div.form-group
+                        ul.signinLi
+                            li
+                                img(src='res/images/Nav/pass.PNG' height=30)
+                            li
+                                label.sr-only(for='password') Password
+                                input#password-login.form-control(type='password', name="password" placeholder='Password', onfocus="this.placeholder = ''" onblur="this.placeholder ='Password'")
+                            br
+                    button#btn-login.btn.signin(type='submit' onclick="return false") Sign in
+                    br
+                    br
+                    a.btn.facebook(href="/login/facebook") Sign in with Facebook

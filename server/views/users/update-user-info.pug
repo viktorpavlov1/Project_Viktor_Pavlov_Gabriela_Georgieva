@@ -1,0 +1,37 @@
+extends ./profile-frame.pug
+
+block rightSide
+    .col-md-8.col-md-offset-1.text-center.update-info-heading
+            h2.form-signin-heading Update Info
+            br
+            form.form-signin(action="/update-info" method="post")
+                ul.update
+                    li
+                        div.form-group
+                            label.sr-only(for='username') First Name
+                            input.form-control(type='text', placeholder='First Name', name="firstName", autofocus='')
+                    li
+                        div.form-group
+                            label.sr-only(for='username') Last Name
+                            input.form-control(type='text', placeholder='Last Name', name="lastName", autofocus='')
+                    li
+                        div.form-group
+                            label.sr-only(for='username') Age
+                            input.form-control(type='text', placeholder='Age', name="age", autofocus='')
+                    li
+                        div.form-group
+                            label.sr-only(for='username') Gender
+                            select.form-control(name="gender", autofocus='')
+                                option(value="male") male
+                                option(value="female") female
+                    li
+                        div.form-group
+                                label.sr-only(for='username') E-Mail
+                                input.form-control(type='email', placeholder='E-Mail', name="email", autofocus='')
+                    li
+                        div.form-group
+                                label.sr-only(for='username') Avatar Url
+                                input.form-control(type='text', placeholder='Avatar Url', name="avatar", autofocus='')
+                br
+                button.btn.updateBtn(type='submit') Update
+

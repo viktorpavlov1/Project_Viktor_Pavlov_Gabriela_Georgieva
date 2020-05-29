@@ -1,0 +1,55 @@
+extends profile-frame.pug
+               
+block rightSide
+    .col-md-9.profile-right-panel
+        if userData.addedPhotos.length != 0
+            h2.text-center Photos added by #{userData.username}
+            table.table.table-stripped.table-hover
+                thead
+                    th.image-thumb
+                    th.category-cell Category
+                    th.link-cell Event
+                    th Date
+                each photo in userData.addedPhotos                                
+                    tr
+                        td.image-thumb
+                            img(src= photo.url, alt= photo.title)
+                        td.category-cell #{photo.category}
+                        td 
+                            a(href="/photo/" + photo._id)= photo.title
+                        td #{photo.date}
+        if userData.addedEvents.length != 0
+            h2.text-center Events added by #{userData.username}
+            table.table.table-stripped.table-hover
+                thead
+                    th.image-thumb
+                    th.category-cell Category
+                    th.link-cell Event
+                    th Date
+                each event in userData.addedEvents                                
+                    tr
+                        td.image-thumb
+                            img(src= event.photo, alt= event.title)
+                        td.category-cell #{event.category}
+                        td.link-cell
+                            a.link-title(href="/events/" + event.category + "/" + event._id)= event.title
+                        td #{event.date}
+        if userData.addedStories.length != 0
+            h2.text-center Stories added by #{userData.username}
+            table.table.table-stripped.table-hover
+                thead
+                    th.image-thumb
+                    th.category-cell Category
+                    th.link-cell Title
+                    th Date
+                each story in userData.addedStories                                
+                    tr
+                        td.image-thumb
+                            img(src= story.pictureUrl, alt= story.title)
+                        td.category-cell #{story.category}
+                        td.link-cell
+                            a.link-title(href="/stories/" + story._id)= story.title
+                        td #{story.date}
+        if userData.addedEvents.length == 0 && userData.addedPhotos.length == 0 && userData.addedStories.length == 0
+            .row.text-center
+                h2 No materials uploaded by #{userData.username} yet...

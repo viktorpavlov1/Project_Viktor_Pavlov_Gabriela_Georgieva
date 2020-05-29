@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+    meta(charset="UTF-8")
+    title Extreme Sports
+
+    link(rel="shortcut icon", href="/res/images/Nav/mountain.png")
+    link(rel="stylesheet", href="/res/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/res/css/bootstrap-datepicker.min.css")
+    link(rel="stylesheet", href="/res/css/main.css")
+    link(rel="stylesheet", href="/res/css/toastr.min.css")
+    link(rel="stylesheet", href="/res/css/usersPages.css")
+
+    block styles
+            
+    script(src="/res/lib/jquery.min.js")
+    script(src="/res/lib/bootstrap.min.js")
+    script(src="/res/lib/toastr.min.js")
+    script(src="/res/lib/bootstrap-datepicker.min.js")
+    block scripts
+    
+body
+
+.navbar.navbar-inverse.container-fluid.navbar-fixed-top.relative.text-center.logo(role='navigation')
+    .container.text-center
+        .navbar-collapse.collapse
+            ul.nav.navbar-nav
+                li
+                    img(src='/res/images/Nav/Logo.PNG' height=40 alt="Logo")
+                li
+            ul.nav.navbar-nav.pull-right.icons
+                if !user
+                    li
+                        a(href='/login')
+                            img(src='/res/images/Nav/login.PNG' height=30)
+                            |  LOGIN
+                    li
+                        a(href='/register')
+                            img(src='/res/images/Nav/register.PNG' height=30)
+                            |  REGISTER
+                else
+                    li
+                        a(href='/profile/' + user.username)
+                            img(src='/res/images/Nav/register.PNG' height=30)
+                            |  PROFILE
+                    li
+                        a(href='/logout')
+                            img(src='/res/images/Nav/logout.PNG' height=30)
+                            |  LOGOUT
+
+.navbar.navbar-default.container-fluid.navbar-fixed-top.relative.topFloat.navColor
+    .container.text-center
+        .navbar-header
+            .brand
+                a(href='/home')
+                    img.home(src='/res/images/Nav/Home_.PNG' height=30)
+
+        .collapse.navbar-collapse
+            ul.nav.navbar-nav.navigation
+                li
+                    a(href="/events") EVENTS
+                li
+                    a(href="/stories") STORIES
+                li
+                    a(href="/gallery") GALLERY
+                li.dropdown
+                    a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+                        | CATEGORIES
+                        span.caret
+                    ul.dropdown-menu(role='menu')
+                        li
+                            a(href='/events/ski') SKI
+                        li.divider
+                        li
+                            a(href='/events/bike') BIKE
+                        li.divider
+                        li
+                            a(href='/events/snowboard') SNOWBOARD
+                li.dropdown
+                    a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+                        | ONLINE SHOPS
+                        span.caret
+                    ul.dropdown-menu(role='menu')
+                        li
+                            a(href='https://www.surfdome.com/Snow_Gear-712/') SURFDOME
+                        li
+                            a(href='http://dropin-shop.com/') DROP IN
+                        li
+                            a(href='http://www.sportdelivery.com/bg/welcome') SPORTDELIVERY
+                        li
+                            a(href='http://www.sportdelivery.com/bg/welcome') OTHERS:
+                        li.divider
+                        li
+                            a(href='http://snow-bg.com/') SNOW REPORT
+                        li
+                            a(href='https://www.facebook.com/groups/333384170107922/') SHRED TOGETHER
+                        li.divider
+
+                li
+                    a(href="/contacts") CONTACTS
+
+                li.searchNav
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            form.navbar-form.navbar-right(method="POST" action="/search")
+                                .form-group
+                                    input#search-bar.form-control.search(type='text', name="query" placeholder='Search events...', onfocus="this.placeholder = ''" onblur="this.placeholder ='Search events...'")
+                                    span &nbsp
+                                    button#btn-search.btn.btn-xs.btn-warning(type="submit") Search!
+
+#content.container-full
+    block content
+
+footer.mainFoot
+    .container-fluid.text-center
+        .footer
+   
+        .seconFooter.panel-body
+            ul.list-inline
+                li
+                    a(href='https://twitter.com/intent/tweet?text=Hello%20world')
+                        button.btn.btn-twitter
+                            i.fa.fa-twitter
+                            |  | Share to Twitter
+                li
+                    a(href='https://www.facebook.com/')
+                        button.btn.btn-facebook
+                            i.fa.fa-facebook
+                            |  | Share to Facebook
+                li
+                    a(href='https://www.linkedin.com/')
+                        button.btn.btn-linkedin
+                            i.fa.fa-linkedin
+                            |  | Share to Linkedin
+
+script(src="/res/js/requester.js")
+script(src="/res/js/users/user-auth.js")
+script(src="/res/js/gallery-handler.js")
+script(src="/res/js/events-handler.js")

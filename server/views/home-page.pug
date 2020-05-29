@@ -1,0 +1,28 @@
+extends main-frame.pug
+
+block content
+    //img.page-wrap(class='snowImg', height=680, src="/res/images/Nav/Snow.PNG", alt="Snow banner")
+    //img.page-wrap(src="/res/images/Nav/snowBG.PNG", alt="Snow banner")
+
+    //second option
+    img.page-wrap(src="/res/images/Nav/snowBG.PNG", alt="Snow banner")
+
+    // Declaration
+    mixin link(href, name)
+        //- attributes == {class: "btn"}
+        .main-button-wrapper
+            //<a class="btn btn-default" href="#" role="button">Link</a>
+            a(class!=attributes .class href=href)= name
+
+    mixin home-page-picture(title, imgSrc, href)
+        .home-page-picture
+            img(src=imgSrc, height=150, alt="extreme-sports-" + title)
+            +link(href, title)(class="btn ssb" role="button")
+
+    //-Declarations end
+
+    .page-wrap.main-container-wrapper
+        +home-page-picture('Ski', '/res/images/ski-main.jpg', '/events/ski')
+        +home-page-picture('Bike', '/res/images/bike-main.jpg', '/events/bike')
+        +home-page-picture('Snowboard', '/res/images/snowboard-main.jpg', '/events/snowboard')
+

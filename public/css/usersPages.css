@@ -1,0 +1,40 @@
+div.freeSpace{
+    height: 100px;
+}
+
+.btn.signin, .btn.register, .btn.profile, .updateBtn, #btn-add-gallery-photo{
+    color: white;
+    background-color: #FF8000;
+}
+
+div.form-group{
+    display: inline;
+}
+
+.signinLi{
+    margin-left: -80px;
+}
+
+.signinLi li{
+    display: inline-block;
+    text-decoration: none;
+    padding-right: 20px;
+}
+
+.regLi {
+    list-style-type: none;
+    padding: 5px;
+}
+.facebook{
+    color:white;
+    background-color: #1E74FF;
+}
+
+ul.information{
+    list-style-type: none;
+    display: inline-block;
+}
+ul.update, ul.contacts{
+    list-style-type: none;
+    padding: 5px;
+}

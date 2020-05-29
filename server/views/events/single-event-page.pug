@@ -1,0 +1,75 @@
+extends ../main-frame
+
+block content
+
+    .header-fix
+        br
+        br
+        br
+    .col-md-10.col-md-offset-1.single-event-page
+        .row.text-left
+            .image-bar
+                each picture in event.pictures
+                    img.thumbnail(src=event.pictures[0].src, max-width=300, height=200, alt='event picture ' + picture.alt)
+
+        .row.text-left
+            h2 #{event.title}
+            | Category:   
+            a(href='/events/' + event.category)= event.category
+                .text-right
+                    a(href='/profile/' + event.author.username)
+                        img(src=event.author.profilePicture.src, width=50, alt='profile picture ' + event.author.username)
+                    span #{event.date}
+            |<hr>
+        .row.text-left
+            p #{event.body}
+
+        // Interested in and Participating In info and  buttons
+        p #{event.interestedIn.length} people interested in going.
+            ul
+                each userInterested in event.interestedIn
+                    li
+                        a(href='/profile/' + userInterested)= userInterested
+                        ='\n'
+        p #{event.participatingIn.length} people participating the event.
+            ul
+                each userParticipating in event.participatingIn
+                    li
+                        a(href='/profile/' + userParticipating)= userParticipating
+                        ='\n'
+        .show-interest
+            a.btn.btn-default(href='/events/ski/interested/' + event._id)= 'Im interested'
+            a.btn.btn-default(href='/events/ski/sure-participate/' + event._id)= 'I will participate'
+
+        .panel.text-center
+            .panel-heading
+                h2 Comments:
+                each comment in event.comments
+                    if !comment.hidden
+                        .panel-footer
+                            p #{comment.body}
+                            a(href="/profile/" + comment.author)= comment.author
+                            br
+                            | Created on: #{comment.date}
+                            if user && (user.username == comment.author || user.role == "admin")
+                                form(action="/comments/" + comment._id + "/delete-comment/" + event._id, method="POST")
+                                    button.btn.btn-xs.btn-danger(type="submit") Delete Comment
+
+        | <hr>
+        if user
+            button#btn-gallery-add-comment.btn.btn-warning.btn-block(href="#" data-toggle="modal" data-target="#gallery-comment-modal") Add Comment
+        .footer-fix
+
+        #gallery-comment-modal.modal.fade(role='dialog')
+            .modal-dialog.modal-lg
+                .modal-content
+                .modal-header
+                    button.close(type='button', data-dismiss='modal') &times;
+                    h3.modal-title(style="color: white") Add Comment:
+                .modal-body
+                    form.form-group(action="/comments/post-comment-to-event/" + event._id  method="POST")
+                        input.form-control(type="text" name="comment" placeholder="What do you think...")
+                        br
+                        button.btn.btn-success.btn-md(type="submit") Submit
+                        span
+                        button.btn.btn-danger(type='button', data-dismiss='modal' onclick="false") Discard

@@ -1,0 +1,233 @@
+body {
+    padding-top: 5em;
+}
+
+.banner-extra-styles {
+    width: 70%;
+    padding: 5px 10px 3px 10px;
+    background-color: white;
+    border: 1px solid darkgray;
+}
+
+.ski-banner {
+    display: inline-block;
+    width: 70%;
+    background-color: lightgrey;
+    border: 1px solid darkgray;
+}
+
+.ski-event {
+    display: inline-block;
+    width: 70%;
+    margin: 2px 10px 2px 0px;
+    padding: 2px 2px 2px 10px;
+    background-color: whitesmoke;
+    border: 1px solid lightblue;
+}
+
+.ski-event img, a {
+    margin-right: 10px;
+}
+
+.main-container-wrapper {
+    display: block;
+    margin: 0;
+    width: 70%;
+    padding: 5px 10px 3px 10px;
+    background-color: white;
+    /*border: 1px solid darkgray;*/
+}
+
+.home-page-picture {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    height: 80%;
+    /*margin: 10px 5px 10px 5px;*/
+    margin-top: 10px;
+    padding: 10px 5px 10px 5px;
+    /*border: 1px solid blue;*/
+}
+
+.home-page-picture img {
+    /*width: 80%;*/
+    /*height: 80%;*/
+    width: 280px;
+    height: 200px;
+    margin-left: 100px;
+    border-top: 5px solid #FF8000;
+}
+
+.main-button-wrapper {
+    margin: 20px;
+    padding: 0;
+    margin-left: 170px;
+}
+
+.btn.ssb {
+    margin-top: -80px;
+    color: white;
+    background-color: #FF8000;
+}
+
+.topFloat {
+    top: 50px;
+}
+
+.logo {
+    background-color: black;
+    height: 15px;
+}
+
+.logo ul {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    /*margin-left: 50px;
+    margin-right: 50px;*/
+    text-align: right;
+}
+
+.bannerImg {
+    background-color: black;
+}
+
+.navColor {
+    /*background-color: rgba(92, 165, 255, 0.3);*/
+    background-color: #1E74FF;
+}
+
+.navColor ul .searchNav {
+    margin-left: 160px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.search {
+    margin-top: 10px;
+    height: 3px;
+}
+
+.searchNav {
+    margin-left: 400px;
+}
+
+.home {
+    margin-top: 10px;
+}
+
+.navigation {
+    /* margin-left: 30px;*/
+}
+
+#search-bar.form-control.search {
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+footer {
+    /*position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;*/
+    background-color: #1E74FF;
+}
+
+.footer {
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+}
+
+.seconFooter ul {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.seconFooter button {
+    color: white;
+    background-color: #FF8000;
+}
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-wrap {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+.snowBG {
+    background-color: black;
+}
+
+
+/*.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1600px; /* or 950px
+}*/
+
+@media (max-width: 800px) {
+    /* Smaller Resolution Desktops and Laptops */
+}
+
+@media (max-width: 650px) {
+    /* Smaller devices */
+}
+
+@media (max-width: 450px) {
+    /* Even Smaller devices */
+}
+
+.icons li a img {
+    margin-top: 0;
+}
+
+footer.landing {
+    height: 1000px;
+}
+
+.marginBottom {
+    margin-bottom: 50px;
+    /*margin-bottom: 100px;*/
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 100px;
+}
+
+.mainFoot {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 100px;
+    background-color: #1E74FF;
+}
+
+.dropdown ul {
+    color: white;
+    background-color: #1E74FF;
+}
+
+.not-authorized {
+    margin: 1.5em;
+}
+
+body > div.datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-top {
+    z-index: 1001
+}

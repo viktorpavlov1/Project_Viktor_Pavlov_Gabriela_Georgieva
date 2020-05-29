@@ -1,0 +1,28 @@
+extends ../main-frame.pug
+
+block styles
+    link(href="/res/css/stories.css", rel="stylesheet")
+    
+block content
+    .col-md-10.col-md-offset-1
+        br
+        .col-md-8.col-md-offset-2.text-center
+            form.form-signin(action="/add-photo", method="POST")
+                h2.form-signin-heading Add Story
+                br  
+                label.sr-only(for='url')
+                input#add-story-title.form-control(type="text" name="title" placeholder="Title" required="true")
+                label.sr-only(for='title')
+                input#add-photo-title.form-control(type='text', name="picture" placeholder='Picture Url')                    
+                label.sr-only(for="category")
+                select#add-story-category.form-control(name="category" required="true")
+                    option(value="Ski") Ski
+                    option(value="Snowboard") Snowboard
+                    option(value="Bike") Bike
+                label.sr-only(for="body")
+                textarea#add-story-body.form-control(name="body", cols="30", rows="8" placeholder="Your store here..." required="true")
+                br 
+                button#btn-add-story.btn.btn-warning(type='submit'  onclick="return false;") Upload
+                br
+
+    script(src="/res/js/stories-handler.js")

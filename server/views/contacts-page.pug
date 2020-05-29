@@ -1,0 +1,31 @@
+extends main-frame.pug
+
+block styles
+    link(href="/res/css/events.css", rel="stylesheet")
+
+block content
+    .container-fluid
+        .row
+            .col-md-4.col-md-offset-1.text-left
+                //h2.form-signin-heading Contacts
+                h1 Contacts
+                    h2 We are a small students community... :)
+                br
+                ul.contacts
+                    | <hr>
+                    li
+                        .name-box
+                            img(src='https://performance.ford.com/content/fordracing/home/series/ford-gt/news/articles/wec/2017/06/ford-gt-takes-second-at-le-mans/_jcr_content/fr-contentItem/image.img.jpg/1497799434976.jpg')
+                        h2 Viktor Pavlov
+                        ul
+                            li GitHub profile: viktorpavlov1
+                            li mail: email@email.com
+                            ='\n'
+                    | <hr>
+                    li
+                        .name-box
+                            img(src='https://cdn.pixabay.com/photo/2014/08/20/00/16/indian-ocean-422155_960_720.jpg')
+                        h4 Gabriela Georgieva
+                        ul
+                            li GitHub profile: gabigeorgieva1948
+                            li mail: email@email.com

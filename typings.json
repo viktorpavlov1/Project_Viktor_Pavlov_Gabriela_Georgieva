@@ -1,0 +1,11 @@
+{
+  "globalDependencies": {
+    "express": "registry:dt/express#4.0.0+20160708185218",
+    "mongoose": "registry:dt/mongoose#4.6.8+20161122192135",
+    "node": "registry:dt/node#6.0.0+20161110151007",
+    "passport": "registry:dt/passport#0.2.0+20161028150851",
+    "passport-facebook": "registry:dt/passport-facebook#1.0.3+20160316155526",
+    "passport-local": "registry:dt/passport-local#0.0.0+20160316155526",
+    "pug": "registry:dt/pug#2.0.0-beta6+20160919072324"
+  }
+}

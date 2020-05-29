@@ -1,0 +1,19 @@
+.image-thumb img {
+    max-width: 2em;
+}
+
+.image-thumb {
+    width: 4em;
+}
+
+.table-results * {
+    font-size: 18px;
+}
+
+.search-heading {
+    margin-top: 1.5em;
+}
+
+.footer-fix {
+    margin-bottom: 8em;
+}

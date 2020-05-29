@@ -1,0 +1,28 @@
+.story-entry {
+    height: 11em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: block;
+}
+
+.story-entry img {
+    max-width: 100%;
+}
+
+.single-story-picture {
+    max-width: 100%;
+}
+
+.single-story-page {
+    margin-top: 2em;
+}
+
+.panel-left {
+    padding-top: 2em;
+}
+
+.footer-fix {
+    height: 8em;
+}

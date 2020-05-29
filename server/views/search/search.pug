@@ -1,0 +1,31 @@
+extends ../main-frame.pug
+
+block styles
+    link(rel="stylesheet", href="/res/css/search.css")
+
+block content
+    
+    if results.length
+        h2.search-heading.text-center Search results for "#{query}"
+        .col-md-10.col-md-offset-1.table-results
+                    table.table.table-stripped.table-hover
+                        thead
+                            th.image-thumb
+                            th.category-cell Category
+                            th.link-cell Title
+                            th.author-cell Author
+                            th Date
+                        each event in results                                
+                            tr
+                                td.image-thumb
+                                    img(src= event.pictures[0].src, alt= event.title)
+                                td.category-cell #{event.category}
+                                td.link-cell
+                                    a.link-title(href="/events/" + event.category + "/" + event._id)= event.title
+                                    
+                                td.creator-cell 
+                                    a(href="/profile/" + event.author.username)= event.author.username
+                                td #{event.date}
+    else
+        h2.search-heading.text-center No results found for "#{query}"...
+    .footer-fix

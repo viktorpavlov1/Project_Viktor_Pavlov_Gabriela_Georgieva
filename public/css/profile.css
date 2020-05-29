@@ -1,0 +1,31 @@
+.image-thumb img {
+    max-width: 2em;
+}
+
+.image-thumb {
+    width: 4em;
+}
+
+.category-cell {
+    width: 6em;
+}
+
+.link-title {    
+    text-overflow: ellipsis;
+}
+
+.link-cell {
+    width: 22em;
+}
+
+.profile-left-panel {
+    margin-top: 4em;
+}
+
+.profile-right-panel {
+     margin-top: 2em;
+}
+
+.update-info-heading {
+    margin-top: 2em;
+}

@@ -1,0 +1,42 @@
+.event-entry {
+    height: 11em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: block;
+}
+
+.event-entry img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.single-event-picture {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.single-event-page {
+    margin-top: 2em;
+}
+
+.panel-left {
+    padding-top: 2em;
+}
+
+.name-box img{
+    max-width: 11em;
+}
+
+.heading-category {
+    margin: 1em;
+}
+
+.panel-heding-events img {
+    max-height: 8em;
+}
+
+.footer-fix {
+    height: 8em;
+}

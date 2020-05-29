@@ -1,0 +1,38 @@
+.gallery-single-photo > img {
+     max-width: 100%;
+ }
+
+.gallery-thumb {
+    height: 14em;
+}
+
+.gallery-thumb img {
+    height: 100%;
+
+}
+footer .hideFooter {
+    display:none;
+}
+
+.gallery {
+    height: 50px;
+}
+
+.galleryContent{
+    margin-top: 2em;
+    height: 900px;
+}
+
+.panel-footer > p {
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 1em;
+}
+
+.heading-gallery {
+    margin-top: 1em;
+    margin-bottom: -1em;
+}
+
+.footer-fix {
+    margin-bottom: 6em;
+}

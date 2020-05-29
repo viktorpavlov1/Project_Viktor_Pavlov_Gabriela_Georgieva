@@ -1,0 +1,47 @@
+extends ../main-frame.pug
+
+block styles
+    link(href="/res/css/stories.css", rel="stylesheet")
+    
+block content
+    .col-md-10.col-md-offset-1.single-story-page
+        .row.text-center
+            h1 Share your story...
+        if user
+            .row
+                a.btn.btn-warning.btn-md.btn-block(href="/add-story") Add Story
+                br
+        if stories.length
+            each story in stories
+                a.thumbnail(href="/stories/" + story._id)
+                    .row.story-entry
+                        .col-md-3
+                            img.thumbnail(src= story.pictureUrl, alt= story.title)
+                        .col-md-9
+                            h2 #{story.title}
+                            h4 #{story.category}
+                            p #{story.body}
+        else 
+            h3 No stories yet...
+        
+        .row.text-center
+            ul.pagination
+                if page == 1
+                    li.disabled
+                        a() &laquo;
+                else
+                    li.active
+                        a(href="/stories?page=" + (page - 1)) &laquo;
+
+                - for (let i = 1; i <= totalPagesCount; i += 1)
+                    li.active
+                        a(href="/stories?page=" + i)= i
+
+                if page == totalPagesCount
+                    li.disabled
+                        a() &raquo;
+                else
+                    li.active
+                         a(href="/stories?page=" + (page + 1)) &raquo;
+        
+        .footer-fix

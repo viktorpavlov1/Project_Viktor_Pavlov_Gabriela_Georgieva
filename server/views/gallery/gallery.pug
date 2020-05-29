@@ -1,0 +1,49 @@
+extends ../main-frame.pug
+
+block styles
+    link(href="/res/css/gallery.css", rel="stylesheet")    
+
+block content
+    .galleryContent
+        .col-md-10.col-md-offset-1
+            .row.text-center
+                .row.text-center
+                    h1 Gallery
+
+            if galleryImages.length && !galleryImages.every(x => x.hidden == true)
+                .row
+                    each image in galleryImages
+                        if !image.hidden
+                            .col-md-3
+                                a.thumbnail.text-center.gallery-thumb(href="/photo/" + image._id, title= image.title, data-type="image", data-toggle="lightbox")                               
+                                    img.image-gallery(src= image.url, alt= image.title)
+                if user
+                      a.btn.btn-success.btn-md.btn-block#btn-add-gallery-photo(href="add-photo") Add Photo
+                .row.text-center
+                    ul.pagination
+                        if page == 1
+                            li.disabled
+                                a() &laquo;
+                        else
+                            li.active
+                                a(href="/gallery?page=" + (page - 1)) &laquo;
+
+                        - for (let i = 1; i <= totalPagesCount; i += 1)
+                            li.active
+                                a(href="/gallery?page=" + i)= i
+
+                        if page == totalPagesCount
+                            li.disabled
+                                a() &raquo;
+                        else
+                            li.active
+                                a(href="/gallery?page=" + (page + 1)) &raquo;
+            else
+                .row.text-center
+                    h3 No photos yet...
+                if user
+                    .row
+                        a.btn.btn-success.btn-md.btn-block#btn-add-gallery-photo(href="add-photo") Add Photo
+                    br
+
+    .marginBottom
